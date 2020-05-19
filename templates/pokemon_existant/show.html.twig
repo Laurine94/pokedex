@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PokemonExistant{% endblock %}
+
+{% block body %}
+    <h1>PokemonExistant</h1>
+    {{error}}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pokemon_existant.id }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ pokemon_existant.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Xp</th>
+                <td>{{ pokemon_existant.xp }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ pokemon_existant.niveau }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ pokemon_existant.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+     <a href="{{ path('pokemon_existant_entrainement', {'id': pokemon_existant.id}) }}"><button class="btn btn-warning" type="button"> Entrainer! </button></a>
+
+    <a href="{{ path('pokemon_existant_index') }}">back to list</a>
+
+    <a href="{{ path('pokemon_existant_edit', {'id': pokemon_existant.id}) }}">edit</a>
+
+    {{ include('pokemon_existant/_delete_form.html.twig') }}
+{% endblock %}

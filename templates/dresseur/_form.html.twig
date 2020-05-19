@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+     <label> Mot de passe</label>
+    <input type="password" name="pass">
+    <button class="btn">{{ button_label|default('Valider') }}</button>
+{{ form_end(form) }}

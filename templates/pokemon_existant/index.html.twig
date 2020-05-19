@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PokemonExistant index{% endblock %}
+
+{% block body %}
+    <h1>PokemonExistant index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Sexe</th>
+                <th>Xp</th>
+                <th>Niveau</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pokemon_existant in pokemon_existants %}
+            <tr>
+                
+                <td>{{ pokemon_existant.nom }}</td>
+                <td>{{ pokemon_existant.sexe }}</td>
+                <td>{{ pokemon_existant.xp }}</td>
+                <td>{{ pokemon_existant.niveau }}</td>
+                <td>
+                    <a href="{{ path('pokemon_existant_show', {'id': pokemon_existant.id}) }}">show</a>
+                    <a href="{{ path('pokemon_existant_edit', {'id': pokemon_existant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pokemon_existant_new') }}">Create new</a>
+{% endblock %}
